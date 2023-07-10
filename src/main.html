@@ -1,0 +1,21 @@
+<div class="m-2 w-50 d-flex justify-content-between">
+  <div class="mx-2">
+    <input
+      class="form-control"
+      type="number"
+      [ngModel]="left()"
+      (ngModelChange)="left.set($event)"
+    />
+  </div>
+  <div class="m-auto">X</div>
+  <div class="mx-2">
+    <input
+      class="form-control"
+      type="number"
+      [ngModel]="right()"
+      (ngModelChange)="right.set($event)"
+    />
+  </div>
+</div>
+
+<div>Result: {{result()}}</div>

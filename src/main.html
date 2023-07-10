@@ -19,3 +19,16 @@
 </div>
 
 <div>Result: {{result()}}</div>
+<hr />
+
+<div class="m-2">
+  <button class="btn btn-primary" (click)="set()">Set</button>
+</div>
+<div class="m-2">
+  <button class="btn btn-primary" (click)="update()">Update</button>
+</div>
+<div class="m-2">
+  <button class="btn btn-primary" (click)="mutate()">Mutate</button>
+</div>
+
+<div>Display: {{val()|json}}</div>

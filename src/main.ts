@@ -12,11 +12,27 @@ import { FormsModule } from '@angular/forms';
 export class App {
   left = signal<number>(0);
   right = signal<number>(0);
+  val = signal<info>({ name: 'Test', val: '' });
   result = computed(() => this.left() * +this.right());
   effectRef = effect(() => console.log('latest value:', this.result()));
   constructor() {}
 
-  onSubmit() {}
+  set() {
+    this.val.set({ name: 'new Test', val: 'new Value' });
+  }
+  update() {
+    this.val.update((v) => {
+      return { name: v.name, val: v.val + ' updated' };
+    });
+  }
+  mutate() {
+    this.val.mutate(v=?)
+  }
 }
 
 bootstrapApplication(App);
+
+export interface info {
+  name: string;
+  val: string;
+}

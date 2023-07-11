@@ -17,16 +17,21 @@ export class App {
   effectRef = effect(() => console.log('latest value:', this.result()));
   constructor() {}
 
+  //Override the value of signals
   set() {
     this.val.set({ name: 'new Test', val: 'new Value' });
   }
+  //Update the value of signals based on original value.
   update() {
     this.val.update((v) => {
       return { name: v.name, val: v.val + ' updated' };
     });
   }
+  //change the content of value of signals in place.
   mutate() {
-    this.val.mutate(v=?)
+    this.val.mutate((v) => {
+      v.val = v.val + ' mtated';
+    });
   }
 }
 
